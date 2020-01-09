@@ -13,10 +13,10 @@ chat.toChat = (e) =>{
     var contacts = document.querySelectorAll('.contact');
     contacts.forEach(element => {
         element.style.border = 'black 1px solid'
-        
     });
     document.querySelector('.contact-name').innerHTML = e.target.innerText;
     e.target.style.border = 'black 5px solid';
+    document.querySelector('#user-text').disabled = '';
 }
 
 chat.submitContact = () =>{
