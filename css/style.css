@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+nav{
+    flex: 1;
+    border: 2px solid red;
+    text-align: center;
+}
+#nav-up{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.main{
+    flex: 4;
+    border: 2px solid blue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+/* .main-up{
+    line-height: 0.1em;
+
+} */
+.main-chat{
+    /* display: flex; */
+    flex: 9;
+}
+.write{
+    flex: 1;
+}
+input{
+    width: 80%;
+    height: 90%;
+    margin-right: 1%;
+}
+button{
+    height: 90%;
+    width: 10%;
+}
+.main-down{
+    display: flex;
+    height: 80%;
+    /* vertical-align: top; */
+}
+.chat{
+    flex: 9;
+    height: 100%;
+    border: 2px solid purple;
+    display: flex;
+    flex-direction: column;
+}
+.emoji{
+    flex: 1;
+    height: 100%;
+    border: 2px solid black;
+
+}
+.add-contact{
+    width: 80px;
+}
+#name-input{
+    display: none;
+    background-color: purple;
+    padding: 20px;
+    /* width: 200px;
+    height: 200px; */
+}
+#submit-name{
+    width: 70px;
+    margin: 10px;
+}
+button{
+    cursor: pointer;
+    border-radius: 12px;
+}
+.contact{
+    border: black 1px solid;
+    height: 60px;
+    text-align: start;
+    margin-top: 10px;
+}
+.contact-img{
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.message1{
+    text-align: start;
+    align-items: flex-end;
+    margin: 15px;
+}
+.message2{
+    text-align: end;
+    margin: 15px;
+
+}
