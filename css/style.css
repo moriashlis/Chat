@@ -148,7 +148,6 @@ button{
 }
 .message1{
     text-align: start;
-    align-items: flex-end;
     margin: 15px;
     /* background-image: url('../images/left.png');
     background-size: cover;
@@ -167,6 +166,11 @@ button{
 div img{
     width: 30px;
     height: 30px;
+    /* right: 0; */
 
 }
+/* .div-emoji{
+    display: flex;
+    
+} */
 

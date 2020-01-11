@@ -8,16 +8,29 @@ chat.start = () => {
     chat.getTheDate();
     chat.createEmoji();
 }
-chat.addEmoji = () => {
-    console.log('h');
+chat.addEmoji = (e) => {
+    var newDiv = document.createElement('div');
+    newDiv.classList.add('div-emoji');
+    document.querySelector('.chat').appendChild(newDiv);
+    var addEmojiToChat = document.createElement('img');
+    // addEmojiToChat.classList.add('chat-emoji');
+    addEmojiToChat.src = e.target.src;
+    newDiv.appendChild(addEmojiToChat);
+    // if (chat.text) {
+    //     addEmojiToChat.classList.add('message1');
+    // }
+    // else {
+    //     addEmojiToChat.classList.add('message2');
+    // }
+    // chat.text = !chat.text;
 
 }
 chat.createEmoji = () => {
     for (let i = 0; i < 6; i++) {
         var newEmoji = document.createElement('div');
-        newEmoji.addEventListener('click', chat.addEmoji);
         document.querySelector('.emoji').appendChild(newEmoji);
         var emoji = document.createElement('img');
+        emoji.addEventListener('click', chat.addEmoji);
         emoji.src = `./images/${i}.png`;
         newEmoji.appendChild(emoji);
     }
