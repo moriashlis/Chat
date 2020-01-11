@@ -10,12 +10,15 @@ chat.addContact = () =>{
     nameInput.style.display = 'block';
 }
 chat.toChat = (e) =>{
+
     var contacts = document.querySelectorAll('.contact');
     contacts.forEach(element => {
-        element.style.border = 'black 1px solid'
+        element.style.border = 'rgba(70, 161, 75, 0.671) 1px solid'
+        element.style.backgroundColor="";
     });
     document.querySelector('.contact-name').innerHTML = e.target.innerText;
-    e.target.style.border = 'black 5px solid';
+    e.target.style.border = 'rgba(70, 161, 75, 0.671) 3px solid';
+    e.target.style.backgroundColor="rgba(70, 161, 75, 0.671)";
     document.querySelector('#user-text').disabled = '';
 }
 
@@ -33,6 +36,7 @@ chat.submitContact = () =>{
     image.classList.add('contact-img');
     image.src = "./images/contact.png";
     newContact.classList.add('contact');
+    newContact.setAttribute("class","contact animated bounce")
     newContact.addEventListener('click', chat.toChat);
     nameContact.innerHTML = `${contact.firstName} ${contact.lastName}`;
     nameContact.style.display = 'inline-block';
