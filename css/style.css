@@ -4,7 +4,8 @@
 }
 body{
     margin: 0;
-     font-family: 'Aclonica';font-size: 17px;
+     font-family: 'Aclonica';
+     font-size: 17px;
 }
 .container{
     display: flex;
@@ -35,7 +36,6 @@ nav{
     /* border: 2px solid blue; */
     /* background-color: rgba(12, 12, 247, 0.2); */
     background-color: rgba(190, 228, 190, 0.479);
-
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -77,14 +77,12 @@ button{
     border-radius: 5px;
     border-style: double;
     overflow: auto;
-
 }
 .emoji{
     flex: 1;
     height: 430px;
     border: 2px solid black;
     margin-right: 10px;
-
 }
 .add-contact{
     width: 80px;
@@ -130,9 +128,8 @@ button{
     border-radius: 5px;
     border-style: groove;
     cursor: pointer;
-    
+    font-size: 13px;
 }
-
 
 .contact-img{
     margin-right: 5px;
@@ -158,6 +155,9 @@ button{
 div img{
     width: 30px;
     height: 30px;
+}
+.div-emoji{
+    text-align: end;
 }
 
 
