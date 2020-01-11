@@ -83,6 +83,8 @@ chat.submitText = () => {
     var userText = document.querySelector('#user-text').value;
     if (userText != '') {
         var newText = document.createElement('div');
+        newText.setAttribute("class","inline");
+        newText.style.backgroundColor="rgba(70, 161, 75, 0.671)";
         if (chat.text) {
             newText.classList.add('message1');
         }
