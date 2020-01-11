@@ -8,6 +8,10 @@ body{
     display: flex;
     width: 100vw;
     height: 100vh;
+    /* background-image: url('../images/background.jpg'); */
+    background-position: center;
+    background-size: cover;
+
 }
 nav{
     flex: 1;
@@ -89,6 +93,7 @@ button{
     height: 60px;
     text-align: start;
     margin-top: 10px;
+    background-color: white;
 }
 .contact-img{
     margin-right: 5px;
@@ -100,9 +105,11 @@ button{
     text-align: start;
     align-items: flex-end;
     margin: 15px;
+    /* background-image: url('../images/left.png');
+    background-size: cover;
+    background-position: center; */
 }
 .message2{
     text-align: end;
     margin: 15px;
-
 }
