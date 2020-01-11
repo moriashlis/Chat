@@ -42,8 +42,7 @@ chat.addContact = () => {
     nameInput.style.display = 'block';
 }
 chat.toChat = (e) => {
-    // document.querySelector('.message1').remove();
-    // document.querySelector('.message2').remove();
+    
     var contacts = document.querySelectorAll('.contact');
     contacts.forEach(element => {
         element.style.border = 'rgba(70, 161, 75, 0.671) 1px solid'
@@ -53,6 +52,16 @@ chat.toChat = (e) => {
     e.target.style.border = 'rgba(70, 161, 75, 0.671) 3px solid';
     e.target.style.backgroundColor = "rgba(70, 161, 75, 0.671)";
     document.querySelector('#user-text').disabled = '';
+     var messagesOne=  document.querySelectorAll('.message1');
+     var messagesTwo= document.querySelectorAll('.message2');
+     messagesOne.forEach(element => {
+         element.remove();
+         
+     });
+     messagesTwo.forEach(element => {
+        element.remove();
+        
+    });
     // if(chat.contacts[0].text.length > 0){
     //     for (const message of chat.contacts[0].text) {
     //         var divText = document.createElement('div');
