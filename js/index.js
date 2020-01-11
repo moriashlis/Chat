@@ -2,7 +2,7 @@ const chat = {};
 chat.contacts = [];
 chat.date = new Date;
 var nameInput = document.querySelector('#name-input')
-var userText = document.querySelector('#user-text').value;
+// var userText = document.querySelector('#user-text').value;
 chat.text = true;
 chat.start = () => {
     chat.getTheDate();
@@ -49,11 +49,14 @@ chat.toChat = (e) => {
     e.target.style.border = 'rgba(70, 161, 75, 0.671) 3px solid';
     e.target.style.backgroundColor = "rgba(70, 161, 75, 0.671)";
     document.querySelector('#user-text').disabled = '';
+    console.log(e.target);
+
 }
 
-chat.submitContact = () => {
+chat.submitContact = () => {    
     nameInput.style.display = 'none';
     var contact = {};
+    contact.text = [];
     contact.firstName = document.querySelector('#first-name').value;
     contact.lastName = document.querySelector('#last-name').value;
     chat.contacts.push(contact);
@@ -77,7 +80,7 @@ chat.getTheDate = () => {
     document.querySelector('.time').innerHTML = chat.date.toDateString();
 }
 chat.submitText = () => {
-    userText = document.querySelector('#user-text').value;
+    var userText = document.querySelector('#user-text').value;
     if (userText != '') {
         var newText = document.createElement('div');
         if (chat.text) {
@@ -89,6 +92,7 @@ chat.submitText = () => {
         chat.text = !chat.text;
         newText.innerHTML = userText;
         document.querySelector('.chat').appendChild(newText);
+        chat.contacts[0].text.push(userText);
         document.querySelector('#user-text').value = '';
     }
 }
