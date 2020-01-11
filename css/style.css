@@ -146,7 +146,6 @@ button{
 .message2{
     text-align: end;
     margin: 15px;
-    margin-left: 850px;
 }
 
 #first-name{
@@ -161,11 +160,7 @@ div img{
     text-align: end;
 }
 
-
-.inline{
-    width: fit-content; 
-    height: fit-content;
-    border-radius: 5px;
-    border-style: groove;
+#submit-text{
+    background-color: rgba(70, 161, 75, 0.671);
 }
 
