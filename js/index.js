@@ -2,6 +2,7 @@ const chat = {};
 chat.contacts = [];
 var nameInput = document.querySelector('#name-input')
 chat.text = true;
+chat.idContact = 0;
 chat.start = () => {
     chat.getTheDate();
     chat.createEmoji();
@@ -42,7 +43,8 @@ chat.addContact = () => {
     nameInput.style.display = 'block';
 }
 chat.toChat = (e) => {
-    
+    // console.log(e.target.id);
+    var inContactList = e.target.id;
     var contacts = document.querySelectorAll('.contact');
     contacts.forEach(element => {
         element.style.border = 'rgba(70, 161, 75, 0.671) 1px solid'
@@ -52,37 +54,33 @@ chat.toChat = (e) => {
     e.target.style.border = 'rgba(70, 161, 75, 0.671) 3px solid';
     e.target.style.backgroundColor = "rgba(70, 161, 75, 0.671)";
     document.querySelector('#user-text').disabled = '';
-     var messagesOne=  document.querySelectorAll('.message1');
-     var messagesTwo= document.querySelectorAll('.message2');
+     var messagesOne =  document.querySelectorAll('.message1');
+     var messagesTwo = document.querySelectorAll('.message2');
      messagesOne.forEach(element => {
          element.remove();
-         
      });
      messagesTwo.forEach(element => {
         element.remove();
-        
     });
-    // if(chat.contacts[0].text.length > 0){
-    //     for (const message of chat.contacts[0].text) {
-    //         var divText = document.createElement('div');
-    //         divText.innerHTML = message;
-    //         if (chat.text) {
-    //             divText.classList.add('message1');
-    //         }
-    //         else {
-    //             divText.classList.add('message2');
-    //         }
-    //         chat.text = !chat.text;
-    //         divText.innerHTML = userText;
-    //         document.querySelector('.chat').appendChild(divText);
-    //         var textTime = document.createElement('div');
-    //         var date = chat.dateTime();
-    //         textTime.innerHTML = date.toLocaleTimeString();
-    //         textTime.style.fontSize = '8px';
-    //         divText.appendChild(textTime);
-    //         chat.contacts[0].text.push(userText);
-    //     }
-    // }
+    if(chat.contacts[inContactList].text.length > 0){
+        for (const message of chat.contacts[inContactList].text) {
+            var divText = document.createElement('div');
+            divText.innerHTML = message;
+            if (chat.text) {
+                divText.classList.add('message1');
+            }
+            else {
+                divText.classList.add('message2');
+            }
+            chat.text = !chat.text;
+            document.querySelector('.chat').appendChild(divText);
+            var textTime = document.createElement('div');
+            var date = chat.dateTime();
+            textTime.innerHTML = date.toLocaleTimeString();
+            textTime.style.fontSize = '8px';
+            divText.appendChild(textTime);
+        }
+    }
 }
 
 chat.submitContact = (e) => {
@@ -92,9 +90,12 @@ chat.submitContact = (e) => {
     contact.firstName = document.querySelector('#first-name').value;
     contact.lastName = document.querySelector('#last-name').value;
     chat.contacts.push(contact);
+    chat.idContact = chat.contacts.indexOf(contact);
+    // console.log(idContact);
     document.querySelector('#first-name').value = '';
     document.querySelector('#last-name').value = '';
     var newContact = document.createElement('div');
+    newContact.id = chat.idContact;
     var nameContact = document.createElement('h3');
     var image = document.createElement('img');
     image.classList.add('contact-img');
@@ -112,7 +113,7 @@ chat.getTheDate = () => {
     var date = chat.dateTime();
     document.querySelector('.time').innerHTML = date.toDateString();
 }
-chat.submitText = () => {
+chat.submitText = (e) => {
     var userText = document.querySelector('#user-text').value;
     if (userText != '') {
         var newText = document.createElement('div');
@@ -130,7 +131,7 @@ chat.submitText = () => {
         textTime.innerHTML = date.toLocaleTimeString();
         textTime.style.fontSize = '8px';
         newText.appendChild(textTime);
-        chat.contacts[0].text.push(userText);
+        chat.contacts[chat.idContact].text.push(userText);
         document.querySelector('#user-text').value = '';
     }
 }
