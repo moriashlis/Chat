@@ -1,19 +1,14 @@
 const chat = {};
 chat.contacts = [];
 var nameInput = document.querySelector('#name-input')
-// var userText = document.querySelector('#user-text').value;
 chat.text = true;
 chat.start = () => {
     chat.getTheDate();
     chat.createEmoji();
-    // chat.dateTime();
-    // console.log(chat.dateTime());
-    
 }
 chat.dateTime = () => new Date;
 chat.addEmoji = (e) => {
     var newDiv = document.createElement('div');
-    // newDiv.classList.add('div-emoji');
     document.querySelector('.chat').appendChild(newDiv);
     var addEmojiToChat = document.createElement('img');
     addEmojiToChat.src = e.target.src;
@@ -25,6 +20,11 @@ chat.addEmoji = (e) => {
         newDiv.classList.add('message2');
     }
     chat.text = !chat.text;
+    var textTime = document.createElement('div');
+    var date = chat.dateTime();
+    textTime.innerHTML = date.toLocaleTimeString();
+    textTime.style.fontSize = '8px';
+    newDiv.appendChild(textTime);
 
 }
 chat.createEmoji = () => {
@@ -42,6 +42,8 @@ chat.addContact = () => {
     nameInput.style.display = 'block';
 }
 chat.toChat = (e) => {
+    // document.querySelector('.message1').remove();
+    // document.querySelector('.message2').remove();
     var contacts = document.querySelectorAll('.contact');
     contacts.forEach(element => {
         element.style.border = 'rgba(70, 161, 75, 0.671) 1px solid'
@@ -51,17 +53,36 @@ chat.toChat = (e) => {
     e.target.style.border = 'rgba(70, 161, 75, 0.671) 3px solid';
     e.target.style.backgroundColor = "rgba(70, 161, 75, 0.671)";
     document.querySelector('#user-text').disabled = '';
+    // if(chat.contacts[0].text.length > 0){
+    //     for (const message of chat.contacts[0].text) {
+    //         var divText = document.createElement('div');
+    //         divText.innerHTML = message;
+    //         if (chat.text) {
+    //             divText.classList.add('message1');
+    //         }
+    //         else {
+    //             divText.classList.add('message2');
+    //         }
+    //         chat.text = !chat.text;
+    //         divText.innerHTML = userText;
+    //         document.querySelector('.chat').appendChild(divText);
+    //         var textTime = document.createElement('div');
+    //         var date = chat.dateTime();
+    //         textTime.innerHTML = date.toLocaleTimeString();
+    //         textTime.style.fontSize = '8px';
+    //         divText.appendChild(textTime);
+    //         chat.contacts[0].text.push(userText);
+    //     }
+    // }
 }
 
-chat.submitContact = (e) => {    
+chat.submitContact = (e) => {
     nameInput.style.display = 'none';
     var contact = {};
     contact.text = [];
     contact.firstName = document.querySelector('#first-name').value;
     contact.lastName = document.querySelector('#last-name').value;
     chat.contacts.push(contact);
-    // var x = chat.contacts.indexOf(contact);
-    // console.log(x);
     document.querySelector('#first-name').value = '';
     document.querySelector('#last-name').value = '';
     var newContact = document.createElement('div');
